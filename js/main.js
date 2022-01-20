@@ -17,27 +17,32 @@ function addtodo(event) {
   event.preventDefault();
   // console.log(event.target);
   // Create Elemt
-  let todoDiv = document.createElement("div");
-  todoDiv.classList.add("todo");
-  let newTodo = document.createElement("li");
   let inputValue = todoInput.value;
-  newTodo.innerText = inputValue;
-  newTodo.classList.add("todo-item");
-  todoDiv.appendChild(newTodo);
+  if (inputValue === "") {
+    alert("nimadir yozinda");
+  } else {
+    let todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+    let newTodo = document.createElement("li");
+    let inputValue = todoInput.value;
+    newTodo.innerText = inputValue;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo);
 
-  // Add Chek
-  let completedButton = document.createElement("button");
-  completedButton.innerHTML = '<i class="fas fa-check"></i>';
-  completedButton.classList.add("complete-button");
-  todoDiv.appendChild(completedButton);
-  // Add Trash
-  let trashButton = document.createElement("button");
-  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-  trashButton.classList.add("trash-button");
-  todoDiv.appendChild(trashButton);
+    // Add Chek
+    let completedButton = document.createElement("button");
+    completedButton.innerHTML = '<i class="fas fa-check"></i>';
+    completedButton.classList.add("complete-button");
+    todoDiv.appendChild(completedButton);
+    // Add Trash
+    let trashButton = document.createElement("button");
+    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+    trashButton.classList.add("trash-button");
+    todoDiv.appendChild(trashButton);
 
-  // append
-  todoList.appendChild(todoDiv);
+    // append
+    todoList.appendChild(todoDiv);
+  }
 
   // clear
   todoInput.value = "";
